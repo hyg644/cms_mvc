@@ -6,7 +6,7 @@ class Login extends React.Component {
         return ( 
             <div>
                 <Button type="primary">Button</Button>
-                <span>略略略</span>
+                <span>略略略11111</span>
             </div>
             
         )
