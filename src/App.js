@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.less';
+import {Link } from 'react-router'
 // import Route from './router'
 
 
@@ -13,6 +14,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
+          <Link to={{pathname:'/login'}} >login</Link>
         </header>
         
       </div>
