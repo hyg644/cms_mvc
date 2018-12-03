@@ -17,10 +17,47 @@ const devConfig = {
         filename: '[name].[hash].js'
     },
     module: {
-        rules: [{
-            test: /\.css$/,
-            use: ["style-loader", "css-loader?modules&localIdentName=[local]-[hash:base64:5]","postcss-loader"]
-        }]
+        // strictExportPresence: true,
+        // rules: [{
+        //     test: /\.css$/,
+        //     use: ["style-loader", "css-loader?modules&localIdentName=[local]-[hash:base64:5]","postcss-loader"]
+        // }]
+        rules:[
+            {//ES6、JSX处理
+                test:/(\.jsx|\.js)$/,
+                exclude: /node_modules/,
+                loader:'babel-loader',
+                query:
+                    {
+                        plugins: [
+                            [
+                                "import",
+                                {libraryName: "antd", style: 'css'}
+                            ] //antd按需加载
+                        ]
+                    },
+            },
+
+            {//CSS处理
+                test: /\.css$/,
+                loader: "style-loader!css-loader?modules",
+                exclude: /node_modules/,
+            },
+
+            {//antd样式处理
+              test:/\.css$/,
+              exclude:/src/,
+              use:[
+                  { loader: "style-loader",},
+                  {
+                      loader: "css-loader",
+                      options:{
+                          importLoaders:1
+                      }
+                  }
+              ]
+            },
+        ]
     },
     devServer: {
         contentBase:path.join(__dirname,'./dist'),
