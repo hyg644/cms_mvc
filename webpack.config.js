@@ -1,104 +1,150 @@
-const path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack');
-const UglifyJSPlugin =require('uglifyjs-webpack-plugin') //文件压缩
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin =require('extract-text-webpack-plugin')  //抽取css
+'use strict'
 
 const merge = require('webpack-merge');
 
-const commonConfig =require('./webpack.common.config.js');
+const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const publicConfig ={
-    devtool: 'cheap-module-source-map',
+const commonConfig = require('./webpack.common.config.js');
+
+const devMode = process.env.NODE_ENV !== 'production'
+
+const styleLoader = devMode ? "style-loader" : MiniCssExtractPlugin.loader;
+
+const resolve = (dir) => {
+    return path.join(__dirname, '..', dir)
+}
+
+const publicConfig = {
     module: {
-        rules: [{
-            test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: ['css-loader?modules&localIdentName=[local]-[hash:base64:5]','postcss-loader']
-            })
-        }]
+        rules: [
+            {
+                test: /\.(sa|sc|le|c)ss$/,
+                exclude: /antd\.css/,
+                use: [
+                    styleLoader,
+                    {
+                        loader: require.resolve('css-loader'),
+                        options: {
+                            importLoaders: 1,
+                            modules: true,
+                            localIndetName:"[name]__[local]___[hash:base64:5]"
+                        },
+                    },{
+                        loader: require.resolve('postcss-loader'),
+                        options: {
+                            ident: 'postcss',
+                            plugins: () => [
+                                require('postcss-flexbugs-fixes'),
+                                // autoprefixer({
+                                //     browsers: [
+                                //         '>1%',
+                                //         'last 4 versions',
+                                //         'Firefox ESR',
+                                //         'not ie < 9', // React doesn't support IE8 anyway
+                                //     ],
+                                //     flexbox: 'no-2009',
+                                // }),
+                            ],
+                        },
+                         // compiles Less to CSS
+                    },{
+                        loader: require.resolve('sass-loader'), // compiles Less to CSS
+                    },{
+                        loader: require.resolve('less-loader'), // compiles Less to CSS
+                    },
+                ]
+            }, {
+                //antd css no use css module
+                test: /\.css$/,
+                include: /antd\.css/,
+                use: [
+                    styleLoader,
+                    {
+                        loader: require.resolve('css-loader'),
+                        options: {
+                            importLoaders: 1,
+                            // 改动
+                            // modules: true,   // 新增对css modules的支持
+                            // localIndetName: '[name]__[local]__[hash:base64:5]', //
+                        },
+                    },
+                    {
+                        loader: require.resolve('postcss-loader'),
+                        options: {
+                            ident: 'postcss',
+                            plugins: () => [
+                                require('postcss-flexbugs-fixes'),
+                                // autoprefixer({
+                                //     browsers: [
+                                //         '>1%',
+                                //         'last 4 versions',
+                                //         'Firefox ESR',
+                                //         'not ie < 9', // React doesn't support IE8 anyway
+                                //     ],
+                                //     flexbox: 'no-2009',
+                                // }),
+                            ],
+                        },
+                    },
+                ],
+            },{
+                //antd css no use css module
+                test: /\.less$/,
+                include: /antd\.less/,
+                use: [
+                    styleLoader,
+                    {
+                        loader: require.resolve('css-loader'),
+                        options: {
+                            importLoaders: 1,
+                            // 改动
+                            // modules: true,   // 新增对css modules的支持
+                            // localIndetName: '[name]__[local]__[hash:base64:5]', //
+                        },
+                    },{
+                        loader: require.resolve('postcss-loader'),
+                        options: {
+                            ident: 'postcss',
+                            plugins: () => [
+                                require('postcss-flexbugs-fixes'),
+                                // autoprefixer({
+                                //     browsers: [
+                                //         '>1%',
+                                //         'last 4 versions',
+                                //         'Firefox ESR',
+                                //         'not ie < 9', // React doesn't support IE8 anyway
+                                //     ],
+                                //     flexbox: 'no-2009',
+                                // }),
+                            ],
+                        },
+                    },{
+                        loader: require.resolve('less-loader'), // compiles Less to CSS
+                    },
+                ],
+            },
+        ]
     },
-    plugins: [
-        new webpack.optimize.UglifyJSPlugin(),
+    /* */
+    mode:'production',
+    devtool: 'inline-sources-map',
+    /** */
+    plugins:[
+        new UglifyJSPlugin(),
         new webpack.DefinePlugin({
-          'process.env': {
-              'NODE_ENV': JSON.stringify('production')
-           }
-       }),
-       new ExtractTextPlugin({
-            filename: '[name].[contenthash:5].css',
-            allChunks: true
+            'process.env':{
+                'NODE_ENV':JSON.stringify('production')
+            }
+        }),
+        new CleanWebpackPlugin(['dist/*.*']),
+        new MiniCssExtractPlugin({
+            filename: '[name].[hash].css',
+            chunkFilename: '[id].[hash].css'
         })
     ]
-} 
+};
 
-module.exports=merge(commonConfig,publicConfig)
-// module.exports = {
-//     devtool: 'cheap-module-source-map',
-//     entry: {
-//         app: [
-//             path.join(__dirname, 'src/index.js')
-//         ],
-//         vendor: ['react', 'react-router-dom', 'redux', 'react-dom', 'react-redux']
-//     },
-//     output: {
-//         path: path.join(__dirname, './dist'),
-//         filename: '[name].[chunkhash].js',
-//         chunkFilename: '[name].[chunkhash].js',
-//         publicPath:'/'
-//     },
-//     module: {
-//         rules: [{
-//             test: /\.js$/,
-//             use: ['babel-loader'],
-//             include: path.join(__dirname, 'src')
-//         }, {
-//             test: /\.css$/,
-//             use: ExtractTextPlugin.extract({
-//                 fallback: "style-loader",
-//                 use: "css-loader"
-//               })
-//         }, {
-//             test: /\.(png|jpg|gif)$/,
-//             use: [{
-//                 loader: 'url-loader',
-//                 options: {
-//                     limit: 8192
-//                 }
-//             }]
-//         }]
-//     },
-//     plugins: [
-//         new HtmlWebpackPlugin({
-//             filename: 'index.html',
-//             template: path.join(__dirname, 'src/index.html')
-//         }),
-//         new webpack.optimize.CommonsChunkPlugin({
-//             name: 'vendor',
-//             name: 'runtime'
-//         }),
-//         new webpack.optimize.UglifyJsPlugin(),
-//         new webpack.DefinePlugin({
-//           'process.env': {
-//               'NODE_ENV': JSON.stringify('production')
-//            }
-//        }),
-//        new webpack.HashedModuleIdsPlugin(),
-//        new CleanWebpackPlugin(['dist']),
-//        new ExtractTextPlugin({
-//             filename: '[name].[contenthash:5].css',
-//             allChunks: true
-//         })
-//     ],
-//     resolve: {
-//         alias: {
-//             pages: path.join(__dirname, 'src/pages'),
-//             component: path.join(__dirname, 'src/component'),
-//             router: path.join(__dirname, 'src/router'),
-//             actions: path.join(__dirname, 'src/redux/actions'),
-//             reducers: path.join(__dirname, 'src/redux/reducers')
-//         }
-//     }
-// };
+module.exports = merge(commonConfig, publicConfig); 

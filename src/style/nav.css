@@ -1,0 +1,4 @@
+.navSelected{color: red}
+
+:local(.isSelected){ color: blueviolet;}
+:global(.selected){color: green}
