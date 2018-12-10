@@ -8,6 +8,10 @@ module.exports = function () {
         'name': Random.cname(),
         'intro': Random.word(20)
     };
+    // data.login = {
+    //     'name': 'admin',
+    //     'password': '123456'
+    // };
     data.contentBody = {
         'name': Random.cname(),
         'intro': Random.word(20)

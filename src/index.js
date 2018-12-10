@@ -6,8 +6,10 @@ import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
 //
 import store from './redux/store';
-import {BrowserRouter as Router} from 'react-router-dom'; 
+import {BrowserRouter as HashRouter} from 'react-router-dom'; 
 import App from 'components/app/app';
+
+import 'style/cmsBase.less'
 
 //开启热更新
 if (module.hot) {
@@ -17,13 +19,14 @@ if (module.hot) {
     });
 };
 
+//TODO
 function renderWithHotReload(RootElement) {
     ReactDom.render(
         <AppContainer>
             <Provider store={store}>
-                <Router>
+                <HashRouter>
                     <RootElement/>
-                </Router>
+                </HashRouter>
             </Provider>
         </AppContainer>,
         document.getElementById('app')

@@ -20,7 +20,7 @@ const commonConfig = {
         filename: '[name].[chunkhash].js',
         chunkFilename:'[name].[chunkhash].js',
         /** 静态资源地址:https://cdn.xxx.com/src*/
-        // publicPath : '/'
+        publicPath : '/'
     },
     module: {
         rules: [

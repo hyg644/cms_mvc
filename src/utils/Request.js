@@ -1,6 +1,6 @@
 import { hashHistory } from 'react-router-dom';
 
-export default function(method,url,body){
+export default function request(method,url,body){
     method = method.toUpperCase();
 
     if(method==='GET'){

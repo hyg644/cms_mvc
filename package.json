@@ -1,7 +1,6 @@
 {
   "name": "news_cms_mvc_v1.0.0",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -59,6 +58,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
+    "react-router-config": "^4.4.0-beta.6",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "typescript": "^3.2.1"
@@ -66,5 +66,14 @@
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyg644/cms_mvc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hyg644/cms_mvc/issues"
+  },
+  "homepage": "https://github.com/hyg644/cms_mvc#readme",
+  "description": ""
 }

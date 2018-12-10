@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NavBase from 'components/system/nav/navBase'
 import FooterBase from 'components/system/footer/footerBase'
+import request,{post} from 'utils/Request'
 
 import {Form, Icon, Input, Button, Checkbox, Row, Col, Layout} from 'antd';
 
@@ -21,8 +22,8 @@ class NormalLoginForm extends Component {
   
   componentwillmount(){
     
-    const {clientHeight} = this.refDom;
-    console.log('token:'+ clientHeight);
+    // const {clientHeight} = this.refDom;
+    // console.log('token:'+ clientHeight);
   }
 
   handleSubmit = (e) => {
@@ -30,7 +31,15 @@ class NormalLoginForm extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        
+        post('/api/login',{
+            admin:values.username,
+            password:values.password,
+        }).then((res)=>{
+          console.log(res)
+          if(res){
+            this.props.history.push('/dashboard');
+          }
+        })
       }
     });
   }

@@ -6,14 +6,15 @@ import ContentBody from 'components/system/contentBody/contentBody';
 import { Button, DatePicker, Layout} from 'antd';
 
 
-
+import {renderRoutes} from 'react-router-config';
 
 export default class Dashboard extends Component {
     //
     constructor(props) {
         super(props);
         this.state = {
-            count : 0
+            count : 0,
+            route: props.route
         }
     }
 
@@ -28,7 +29,8 @@ export default class Dashboard extends Component {
                 <Nav />
                 <Layout>
                     <SliderBar /> 
-                    <ContentBody />
+                    <ContentBody route={this.props.route} />
+
                 </Layout>
             </Layout>
         )
