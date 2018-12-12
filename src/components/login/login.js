@@ -31,11 +31,11 @@ class NormalLoginForm extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        post('/api/login',{
-            admin:values.username,
+        post('http://localhost:8213/login',{
+            username:values.username,
             password:values.password,
         }).then((res)=>{
-          console.log(res)
+          console.log('res:'+res)
           if(res){
             this.props.history.push('/dashboard');
           }
@@ -49,14 +49,15 @@ class NormalLoginForm extends Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <Layout>
+        
         <NavBase />    
-
+        
         <Content>
           <Row type='flex' justify='center' style={{paddingTop:'100px',paddingBottom:'200px'}}>
             <Col span={8}>       
               <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem>
-                  {getFieldDecorator('userName', {
+                  {getFieldDecorator('username', {
                     rules: [{ required: true, message: 'Please input your username!' }],
                   })(
                     <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
@@ -82,8 +83,7 @@ class NormalLoginForm extends Component {
             </Col>
           </Row>
         </Content>
-        
-
+          
         <FooterBase />
       </Layout>
 

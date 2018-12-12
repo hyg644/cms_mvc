@@ -14,7 +14,7 @@ export default class ManageContent extends Component {
     render(){
         return (
             <div>
-                {console.log('this.props:'+JSON.stringify(this.props))}
+                {/* {console.log('this.props:'+JSON.stringify(this.props))} */}
                  {renderRoutes(this.state.route.children)}
             </div>
         )}
