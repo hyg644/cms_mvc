@@ -14,23 +14,27 @@ export default class Dashboard extends Component {
         super(props);
         this.state = {
             count : 0,
-            route: props.route
+            route: props.route,
+            openKeys:['sub1']
         }
     }
 
     //click
-    _handlerClick(){
-
+    onHandlerSelectedChange = (openKeys) =>{
+        console.log('dashboardKey:'+ openKeys)
+        this.setState({
+            openKeys: openKeys ? [openKeys] : []
+        })
+        
     }
 
     render() {
         return (
             <Layout>
-                <Nav />
+                <Nav handlerSelectedChange={this.onHandlerSelectedChange}/>
                 <Layout>
-                    <SliderBar /> 
+                    <SliderBar route={this.props.route}  handlerSelectedChange={this.onHandlerSelectedChange}  openKeys = {this.state.openKeys}/> 
                     <ContentBody route={this.props.route} />
-
                 </Layout>
             </Layout>
         )

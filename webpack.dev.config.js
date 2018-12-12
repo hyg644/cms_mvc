@@ -144,7 +144,7 @@ const devConfig = {
         port:8212,
         contentBase: path.join(__dirname, './dist'),
         historyApiFallback: true,//配置回调页面
-        host:'10.0.41.72',
+        host:'10.0.41.131',
         // compress: true,//启用gzip压缩
         proxy: {
             "/api": "http://localhost:8213/"

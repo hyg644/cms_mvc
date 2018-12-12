@@ -56,10 +56,11 @@ export default class ContentBody extends Component {
                     <Breadcrumb.Item>ContentManage</Breadcrumb.Item>
                     <Breadcrumb.Item>ContentList</Breadcrumb.Item>
                 </Breadcrumb>
+                
                 <Content style={{background: '#fff', padding: 24, margin: 0, minHeight: 280,}}>
                     {/* {getRouterLogin() } */}x
                     {renderRoutes(this.state.route.children)}
-                    {console.log('route2:'+JSON.stringify(this.state.route.children))}
+                    {/* {console.log('route2:'+JSON.stringify(this.state.route.children))} */}
                 </Content>
             </Layout>
         )
