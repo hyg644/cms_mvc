@@ -65,7 +65,7 @@ export default class SliderBar extends Component{
                 onOpenChange={this.onOpenChange}
                 >
                 <SubMenu key="sub1" title={<span><Icon type="hdd" />内容管理</span>}>
-                    <Menu.Item key="sub1-1"><Link to="/dashboard/manageContent/eidtContent"><Icon type="form" />内容编辑</Link></Menu.Item>
+                    <Menu.Item key="sub1-1"><Link to="/dashboard/manageContent/editContent"><Icon type="form" />内容编辑</Link></Menu.Item>
                     <Menu.Item key="sub1-2"><Link to="/dashboard/manageContent/subjectManage"><Icon type="snippets" />专题编辑</Link></Menu.Item>
                     <Menu.Item key="sub1-3"><Link to="/dashboard/manageContent/columnManage"><Icon type="ordered-list" />栏目管理</Link></Menu.Item>
                     <Menu.Item key="sub1-4"><Link to="/contentInput">contentInput</Link></Menu.Item>

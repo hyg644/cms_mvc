@@ -52,22 +52,27 @@ const getRouter =[
                 path:'/dashboard/manageContent',
                 name:'ManageContent',
                 component: createComponent(ManageContent),
-                // children:[
-                //     {
-                //         path:'/dashboard/manageContent/editContent',
-                //         name:'EditContent',
-                //         component:createComponent(EditContent)
-                //     }, {
-                //         path:'/dashboard/manageContent/columnManage',
-                //         name:'ColumnManage',
-                //         component:createComponent(ColumnManage)
-                //     },{
-                //         path:'/dashboard/manageContent/subjectManage',
-                //         name:'SubjectManage',
-                //         component:createComponent(SubjectManage)
-                //     }
+                children:[
+                    {
+                        path:'/dashboard/manageContent',
+                        exact: true,
+                        name:'manageContentDefault',
+                        component:createComponent(EditContent)
+                    },{
+                        path:'/dashboard/manageContent/editContent',
+                        name:'EditContent',
+                        component:createComponent(EditContent)
+                    }, {
+                        path:'/dashboard/manageContent/columnManage',
+                        name:'ColumnManage',
+                        component:createComponent(ColumnManage)
+                    },{
+                        path:'/dashboard/manageContent/subjectManage',
+                        name:'SubjectManage',
+                        component:createComponent(SubjectManage)
+                    }
                    
-                // ]
+                ]
             },{
                 path:'/dashboard/manageOperation',
                 name:'ManageOperation',
