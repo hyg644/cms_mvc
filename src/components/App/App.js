@@ -23,8 +23,6 @@ export default class App extends Component {
         this.setState({
             token: tokenSession
         })
-
-
         if(this.state.token==null){
             //location.replace('/login');
         }
