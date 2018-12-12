@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Nav from 'components/system/nav/nav';
 import SliderBar from 'components/system/sliderBar/sliderBar';
 import ContentBody from 'components/system/contentBody/contentBody';
-
+import FooterBase from 'components/system/footer/footerBase'
 import { Button, DatePicker, Layout} from 'antd';
 
 
@@ -36,6 +36,7 @@ export default class Dashboard extends Component {
                     <SliderBar route={this.props.route}  handlerSelectedChange={this.onHandlerSelectedChange}  openKeys = {this.state.openKeys}/> 
                     <ContentBody route={this.props.route} />
                 </Layout>
+                <FooterBase/>
             </Layout>
         )
     }
