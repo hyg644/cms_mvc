@@ -86,20 +86,20 @@ export default class SliderBar extends Component{
                 </SubMenu>
                 <SubMenu key="sub4" title={<span><Icon type="cluster" />系统管理</span>}>
                     <ItemGroup key="g1" title='系统管理'>
-                        <Menu.Item key="sub4-g1-1"><Icon type="desktop" />站点管理</Menu.Item>
-                        <Menu.Item key="sub4-g1-2"><Icon type="layout" />模型管理</Menu.Item>
-                        <Menu.Item key="sub4-g1-3"><Icon type="file-markdown" />模板管理</Menu.Item>
-                        <Menu.Item key="sub4-g1-4"><Icon type="line-chart" />计划任务</Menu.Item>
-                        <Menu.Item key="sub4-g1-5"><Icon type="api" />接口列表</Menu.Item>
-                        <Menu.Item key="sub4-g1-6"><Icon type="tool" />参数配置</Menu.Item>
+                        <Menu.Item key="sub4-g1-1"><Link to="/dashboard/manageSystem/systemManage/siteManage"><Icon type="desktop" />站点管理</Link></Menu.Item>
+                        <Menu.Item key="sub4-g1-2"><Link to="/dashboard/manageSystem/systemManage/modelManage"><Icon type="layout" />模型管理</Link></Menu.Item>
+                        <Menu.Item key="sub4-g1-3"><Link to="/dashboard/manageSystem/systemManage/templateManage"><Icon type="file-markdown" />模板管理</Link></Menu.Item>
+                        <Menu.Item key="sub4-g1-4"><Link to="/dashboard/manageSystem/systemManage/planManage"><Icon type="line-chart" />计划任务</Link></Menu.Item>
+                        <Menu.Item key="sub4-g1-5"><Link to="/dashboard/manageSystem/systemManage/interfaceList"><Icon type="api" />接口列表</Link></Menu.Item>
+                        <Menu.Item key="sub4-g1-6"><Link to="/dashboard/manageSystem/systemManage/paramterConfig"><Icon type="tool" />参数配置</Link></Menu.Item>
                     </ItemGroup>
                     <ItemGroup key="g2" title='功能维护'>
-                        <Menu.Item key="sub4-g2-1"><Icon type="paper-clip" />附件管理</Menu.Item>
-                        <Menu.Item key="sub4-g2-2"><Icon type="delete" />缓存清理</Menu.Item>
+                        <Menu.Item key="sub4-g2-1"><Link to="/dashboard/manageSystem/functoinMaintenance/attachmentManage"><Icon type="paper-clip" />附件管理</Link></Menu.Item>
+                        <Menu.Item key="sub4-g2-2"><Link to="/dashboard/manageSystem/functoinMaintenance/clearCacheManage"><Icon type="delete" />缓存清理</Link></Menu.Item>
                     </ItemGroup>
                     <ItemGroup key="g3" title='日志监控'>
-                        <Menu.Item key="sub4-g3-1"><Icon type="fund" />系统监控</Menu.Item>
-                        <Menu.Item key="sub4-g3-2"><Icon type="align-left" />日志列表</Menu.Item>
+                        <Menu.Item key="sub4-g3-1"><Link to="/dashboard/manageSystem/logMonitoring/logList"><Icon type="fund" />系统监控</Link></Menu.Item>
+                        <Menu.Item key="sub4-g3-2"><Link to="/dashboard/manageSystem/logMonitoring/systemMonitoring"><Icon type="align-left" />日志列表</Link></Menu.Item>
                     </ItemGroup>
                 </SubMenu>
                 </Menu>

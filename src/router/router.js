@@ -17,6 +17,25 @@ import ManageOperation from 'bundle-loader?lazy&name=manageOperation!components/
 import ManagePurview from 'bundle-loader?lazy&name=managePurview!components/system/managePurview/managePurview';
 import ManageSystem from 'bundle-loader?lazy&name=manageSystem!components/system/manageSystem/manageSystem';
 
+// systemManage
+import ModelManage from 'bundle-loader?lazy&name=modelManage!components/system/manageSystem/systemManage/modelManage/modelManage';
+import ParamterConfig from 'bundle-loader?lazy&name=paramterConfig!components/system/manageSystem/systemManage/paramterConfig/paramterConfig';
+import SiteManage from 'bundle-loader?lazy&name=siteManage!components/system/manageSystem/systemManage/siteManage/siteManage';
+import InterfaceList from 'bundle-loader?lazy&name=interfaceList!components/system/manageSystem/systemManage/interfaceList/interfaceList';
+import PlanManage from 'bundle-loader?lazy&name=planManage!components/system/manageSystem/systemManage/planManage/planManage';
+import TemplateManage from 'bundle-loader?lazy&name=templateManage!components/system/manageSystem/systemManage/templateManage/templateManage';
+//functoinMaintenance
+import AttachmentManage from 'bundle-loader?lazy&name=attachmentManage!components/system/manageSystem/functoinMaintenance/attachmentManage/attachmentManage';
+import ClearCacheManage from 'bundle-loader?lazy&name=clearCacheManage!components/system/manageSystem/functoinMaintenance/clearCacheManage/clearCacheManage';
+
+
+//logMonitoring
+import LogList from 'bundle-loader?lazy&name=logList!components/system/manageSystem/logMonitoring/logList/logList';
+import SystemMonitoring from 'bundle-loader?lazy&name=systemMonitoring!components/system/manageSystem/logMonitoring/systemMonitoring/systemMonitoring';
+
+
+
+
 import NotFound from 'bundle-loader?lazy&name=NoFound!components/status/notFound';
 import Loading from 'bundle-loader?lazy&name=Loading!components/system/loading/loading';
 
@@ -85,6 +104,79 @@ const getRouter =[
                 path:'/dashboard/manageSystem',
                 name:'ManageSystem',
                 component: createComponent(ManageSystem),
+                // children:[
+                //     {
+                //         path:'/dashboard/manageSystem/systemManage',
+                //         exact:true,
+                //         name:'systemManageDefault',
+                //         component: createComponent(SiteManage),
+                //         children:[
+                //             {
+                //                 path:'/dashboard/manageSystem/systemManage/siteManage',
+                //                 name:'SiteManage',
+                //                 component:createComponent(SiteManage)           
+                //             },
+                //         ]
+                //     },{
+                //         path:'/dashboard/manageSystem/functoinMaintenance',
+                //         exact:true,
+                //         name:'functoinMaintenanceDefault',
+                //         component: createComponent(ManageSystem),
+                //     },{
+                //         path:'/dashboard/manageSystem/logMonitoring',
+                //         exact:true,
+                //         name:'logMonitoringDefault',
+                //         component: createComponent(ManageSystem),
+                //     }
+                // ]
+                children:[
+                    {
+                        path:'/dashboard/manageSystem',
+                        exact: true,
+                        name:'manageSystemDefault',
+                        component:createComponent(SiteManage)
+                    },{
+                        path:'/dashboard/manageSystem/systemManage/modelManage',
+                        name:'ModelManage',
+                        component:createComponent(ModelManage)
+                    },{
+                        path:'/dashboard/manageSystem/systemManage/paramterConfig',
+                        name:'ParamterConfig',
+                        component:createComponent(ParamterConfig)
+                    },{
+                        path:'/dashboard/manageSystem/systemManage/siteManage',
+                        name:'SiteManage',
+                        component:createComponent(SiteManage)
+                    },{
+                        path:'/dashboard/manageSystem/systemManage/interfaceList',
+                        name:'InterfaceList',
+                        component:createComponent(InterfaceList)
+                    },{
+                        path:'/dashboard/manageSystem/systemManage/planManage',
+                        name:'PlanManage',
+                        component:createComponent(PlanManage)
+                    },{
+                        path:'/dashboard/manageSystem/systemManage/templateManage',
+                        name:'TemplateManage',
+                        component:createComponent(TemplateManage)
+                    },{
+                        path:'/dashboard/manageSystem/functoinMaintenance/attachmentManage',
+                        name:'AttachmentManage',
+                        component:createComponent(AttachmentManage)
+                    },{
+                        path:'/dashboard/manageSystem/functoinMaintenance/clearCacheManage',
+                        name:'ClearCacheManage',
+                        component:createComponent(ClearCacheManage)
+                    },{
+                        path:'/dashboard/manageSystem/logMonitoring/LogList',
+                        name:'LogList',
+                        component:createComponent(LogList)
+                    },{
+                        path:'/dashboard/manageSystem/logMonitoring/systemMonitoring',
+                        name:'SystemMonitoring',
+                        component:createComponent(SystemMonitoring)
+                    }
+                ]
             },{
                 component: createComponent(NotFound),
             }
