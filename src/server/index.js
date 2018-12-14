@@ -17,7 +17,23 @@ server.post('/login',function(req,res,next){
         res.json(false);
     }
 });
-
+server.post('/slider',function(req,res,next){
+    res.header('Access-Control-Expose-Headers', 'access-token');
+    res.header('access-token',Date.now());
+    let data=[]
+    for(let i=0;i<30;i++){
+        data.push({
+            'no':`6 ${i}`,
+            'name':`咕咕123 ${i}`,
+            'href':'http://domestic.firefox.sina.com',
+            'sort':`100${i}`,
+            'status':1,
+            'img':'https://s3.dualstack.us-east-2.amazonaws.com/fwb-test/Peter%20Pan.jpg',
+    
+        })
+    }
+    res.json(data)
+})
 server.use(require('./auth'));
 server.use(router);
 
