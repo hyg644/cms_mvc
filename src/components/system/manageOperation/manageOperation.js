@@ -1,7 +1,7 @@
 //TODO 运营管理
 import React,{Component} from 'react';
 import { Table, Button ,Icon,Input } from 'antd';
-import request,{post} from 'utils/Request'
+import request,{get} from 'utils/RequestNormal'
 import { debug } from 'util';
 
 const columns=[{
@@ -78,14 +78,16 @@ export default class ManageOperation extends Component {
     //     console.log('您点击了'+e)
     // }
     componentDidMount(){
-            post('http://localhost:8213/slider').then((Json)=>{
-                // console.log(Json)
+            get('http://10.0.41.131:8213/slider').then((Json)=>{
+                console.log(Json)
                 // return Json
                 this.setState({
                     list:Json
                 })
             })
     }
+
+    //TODO
     render(){
         return (
             <div>

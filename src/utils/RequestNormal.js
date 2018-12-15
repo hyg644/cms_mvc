@@ -30,7 +30,8 @@ export default function request(method,url,body){
                 sessionStorage.setItem('access-token',token);
             }
         }
-        console.log(res)
+        console.log('res.status:'+res.status);
+        
         return res.json();
     });
 }

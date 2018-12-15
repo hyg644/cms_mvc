@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import NavBase from 'components/system/nav/navBase'
-import FooterBase from 'components/system/footer/footerBase'
-import request,{post} from 'utils/Request'
+import NavBase from 'components/system/nav/navBase';
+import FooterBase from 'components/system/footer/footerBase';
+import request,{post} from 'utils/Request';
 
 import {Form, Icon, Input, Button, Checkbox, Row, Col, Layout} from 'antd';
 

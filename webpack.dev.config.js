@@ -147,7 +147,11 @@ const devConfig = {
         host:'10.0.41.131',
         // compress: true,//启用gzip压缩
         proxy: {
-            "/api": "http://localhost:8213/"
+            "/api": {
+                target: 'http://localhost:8213',
+                pathRewrite: {'^/api' : ''},
+                changeOrigin: true
+              }
         }//接口调用代理
     },
     devtool: 'inline-sources-map',
