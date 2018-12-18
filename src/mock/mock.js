@@ -5,7 +5,8 @@ module.exports = function() {
     const data = { 
         news: [],//
         slider:[],
-        contentTreeList:[]
+        contentTreeList:[],
+        locale:[],
     };
   
 
@@ -36,6 +37,21 @@ module.exports = function() {
             'img':Random.image('200x100', Random.word(2,6)),
         })
     }
+
+    //TODO API slider
+    data.contentTreeList =  Mock.mock({
+            'treeNode|0-20':{
+                "title|+1:":'',
+                'subNum':Random.integer(0,100000),
+                'key':Random.natural(10000)
+            }
+    });
+    
+    
+    //TODO API locale
+    data.locale = Mock.mock({
+        'locale':'en-US'
+    });
 
 
 

@@ -21,8 +21,8 @@ const publicConfig = {
     module: {
         rules: [
             {
-                test: /\.(sa|sc|le|c)ss$/,
-                exclude: /antd\.css/,
+                test: /\.(sa|sc)ss$/,
+                exclude: /node_modules|antd\.css/,
                 use: [
                     styleLoader,
                     {
@@ -38,23 +38,87 @@ const publicConfig = {
                             ident: 'postcss',
                             plugins: () => [
                                 require('postcss-flexbugs-fixes'),
-                                // autoprefixer({
-                                //     browsers: [
-                                //         '>1%',
-                                //         'last 4 versions',
-                                //         'Firefox ESR',
-                                //         'not ie < 9', // React doesn't support IE8 anyway
-                                //     ],
-                                //     flexbox: 'no-2009',
-                                // }),
+                                autoprefixer({
+                                    browsers: [
+                                        '>1%',
+                                        'last 4 versions',
+                                        'Firefox ESR',
+                                        'not ie < 9', // React doesn't support IE8 anyway
+                                    ],
+                                    flexbox: 'no-2009',
+                                }),
                             ],
                         },
                          // compiles Less to CSS
                     },{
                         loader: require.resolve('sass-loader'), // compiles Less to CSS
+                    },
+                ]
+            }, {
+                test: /\.less$/,
+                exclude: /node_modules|antd\.css/,
+                use: [
+                    styleLoader,
+                    {
+                        loader: require.resolve('css-loader'),
+                        options: {
+                            importLoaders: 1,
+                            modules: true,
+                            localIndetName:"[name]__[local]___[hash:base64:5]"
+                        },
+                    },{
+                        loader: require.resolve('postcss-loader'),
+                        options: {
+                            ident: 'postcss',
+                            plugins: () => [
+                                require('postcss-flexbugs-fixes'),
+                                autoprefixer({
+                                    browsers: [
+                                        '>1%',
+                                        'last 4 versions',
+                                        'Firefox ESR',
+                                        'not ie < 9', // React doesn't support IE8 anyway
+                                    ],
+                                    flexbox: 'no-2009',
+                                }),
+                            ],
+                        },
+                         // compiles Less to CSS
                     },{
                         loader: require.resolve('less-loader'), // compiles Less to CSS
                     },
+                ]
+            },{
+                test: /\.css$/,
+                // exclude: /node-modules|antd\.(le|c)ss/,
+                use: [
+                    styleLoader,
+                    {
+                        loader: require.resolve('css-loader'),
+                        options: {
+                            importLoaders: 1,
+                            modules: true,
+                            localIndetName:"[name]__[local]___[hash:base64:5]"
+                        },
+                    },{
+                        loader: require.resolve('postcss-loader'),
+                        options: {
+                            ident: 'postcss',
+                            plugins: () => [
+                                require('postcss-flexbugs-fixes'),
+                                autoprefixer({
+                                    browsers: [
+                                        '>1%',
+                                        'last 4 versions',
+                                        'Firefox ESR',
+                                        'not ie < 9', // React doesn't support IE8 anyway
+                                    ],
+                                    flexbox: 'no-2009',
+                                }),
+                            ],
+                        },
+                         // compiles Less to CSS
+                    }
                 ]
             }, {
                 //antd css no use css module
@@ -66,9 +130,6 @@ const publicConfig = {
                         loader: require.resolve('css-loader'),
                         options: {
                             importLoaders: 1,
-                            // 改动
-                            // modules: true,   // 新增对css modules的支持
-                            // localIndetName: '[name]__[local]__[hash:base64:5]', //
                         },
                     },
                     {
@@ -77,15 +138,6 @@ const publicConfig = {
                             ident: 'postcss',
                             plugins: () => [
                                 require('postcss-flexbugs-fixes'),
-                                // autoprefixer({
-                                //     browsers: [
-                                //         '>1%',
-                                //         'last 4 versions',
-                                //         'Firefox ESR',
-                                //         'not ie < 9', // React doesn't support IE8 anyway
-                                //     ],
-                                //     flexbox: 'no-2009',
-                                // }),
                             ],
                         },
                     },
@@ -100,9 +152,6 @@ const publicConfig = {
                         loader: require.resolve('css-loader'),
                         options: {
                             importLoaders: 1,
-                            // 改动
-                            // modules: true,   // 新增对css modules的支持
-                            // localIndetName: '[name]__[local]__[hash:base64:5]', //
                         },
                     },{
                         loader: require.resolve('postcss-loader'),
@@ -110,15 +159,6 @@ const publicConfig = {
                             ident: 'postcss',
                             plugins: () => [
                                 require('postcss-flexbugs-fixes'),
-                                // autoprefixer({
-                                //     browsers: [
-                                //         '>1%',
-                                //         'last 4 versions',
-                                //         'Firefox ESR',
-                                //         'not ie < 9', // React doesn't support IE8 anyway
-                                //     ],
-                                //     flexbox: 'no-2009',
-                                // }),
                             ],
                         },
                     },{

@@ -21,7 +21,7 @@ export default class TreeList extends Component {
     };
 
     componentWillMount=(e)=>{
-        get('http://10.0.41.131:8213/news')
+        get('http://10.0.41.131:8213/contentTreeList')
         .then((res)=>{
         //   console.log('res:'+JSON.stringify(res))
           if(res){
