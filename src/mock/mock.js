@@ -7,6 +7,7 @@ module.exports = function() {
         slider:[],
         contentTreeList:[],
         locale:[],
+        sitemanage:[]
     };
   
 
@@ -55,5 +56,21 @@ module.exports = function() {
 
 
 
+    //TODO API siteManage (站点管理)
+    
+    for(let i=0;i<30;i++){
+        data.sitemanage.push({
+            'no':`${i}`,
+            'site':Random.cword(2,6),
+            'domain':Random.cword(4,10),
+            'language':Random.cword(4,10),
+            'templates':Random.cword(2,6),
+            'title':Random.cword(4,10),
+            'keywords':'keyword',
+            'describe':100,
+            'status':1
+        })
+    }
+    
   return data
 }

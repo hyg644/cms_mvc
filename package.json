@@ -6,6 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --config webpack.dev.config.js",
     "start": "webpack-dev-server --config webpack.dev.config.js --color --progress --hot",
+    "mystart": "webpack-dev-server --config webpack.dev.config.my.js --color --progress --hot",
     "build": "webpack --config webpack.config.js",
     "mock:login": "json-server src/mock/db.json --watch --port 8213",
     "mock": "json-server src/mock/mock.js --watch --port 8213",
