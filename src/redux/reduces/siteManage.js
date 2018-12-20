@@ -1,9 +1,11 @@
 import {GET_SITE_INFO_REQUEST, GET_SITE_INFO_SUCCESS, GET_SITE_INFO_FAIL} from '../actions/siteManage'
 
+
+
 const initState = {
     isLoading: false,
     siteInfo: [],
-    errorMsg: ''
+    errorMsg: '',
 }
 
 export default function reducer(state = initState, action){
@@ -27,7 +29,7 @@ export default function reducer(state = initState, action){
                 ...state,
                 isLoading: false,
                 siteInfo: action.result.data,
-                errorMsg:''
+                errorMsg:'',
             };
         case GET_SITE_INFO_FAIL:
             return {

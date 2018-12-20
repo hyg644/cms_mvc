@@ -1,6 +1,6 @@
-export const GET_SITE_INFO_REQUEST = 'userinfo/GET_SITE_INFO_REQUEST';
-export const GET_SITE_INFO_SUCCESS = 'userinfo/GET_SITE_INFO_SUCCESS';
-export const GET_SITE_INFO_FAIL = 'userinfo/GET_SITE_INFO_FAIL';
+export const GET_SITE_INFO_REQUEST = 'siteinfo/GET_SITE_INFO_REQUEST';
+export const GET_SITE_INFO_SUCCESS = 'siteinfo/GET_SITE_INFO_SUCCESS';
+export const GET_SITE_INFO_FAIL = 'siteinfo/GET_SITE_INFO_FAIL';
 
 function getSiteInfoRequest() {
     return {
@@ -8,10 +8,10 @@ function getSiteInfoRequest() {
     }
 }
 
-function getSiteInfoSuccess(userInfo) {
+function getSiteInfoSuccess(siteinfo) {
     return {
         type: GET_SITE_INFO_SUCCESS,
-        userInfo: userInfo 
+        siteinfo: siteinfo 
     }
 }
 
@@ -20,6 +20,9 @@ function getSiteInfoFail() {
         type: GET_SITE_INFO_FAIL
     }
 }
+
+
+
 
 export function getSiteInfo(){
     return {
