@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import { Button } from 'antd';
 
 
-
+// TODO siteManage 头部数据
 const Column=[
     {
         title:'no',
@@ -56,17 +56,24 @@ const Column=[
         key:'operation',
         render:(text,record)=>(
             <div>
-           <Button style={{marginRight:20}}
-                type="primary"  onClick={()=> getID(record.name)}
-            >当前站点</Button>
-            <Button style={{marginRight:20}}
-                type="primary"  onClick={()=> getID(record.name)}
-            >编辑</Button>
-            <Button
-                type="dashed"  onClick={()=> delData(record.no)}
-            >删除</Button>
-        </div>
+                <Button style={{marginRight:20}}
+                    type="primary"  onClick={()=> getID(record.title)}
+                >当前站点</Button>
+                <Button style={{marginRight:20}}
+                    type="primary"  onClick={()=> getID(record.title)}
+                >编辑</Button>
+                <Button
+                    type="dashed"  onClick={()=> delData(record.no)}
+                >删除</Button>
+            </div>
         )
     }
 ]
+
+let  getID=(e)=>{
+    console.log(e)
+}
+let delData=(e)=>{
+    console.log(e)
+}
 export default Column

@@ -61,6 +61,7 @@ module.exports = function() {
     
     for(let i=0;i<30;i++){
         data.sitemanage.push({
+            'key':`${i}`,
             'no':`${i}`,
             'site':Random.cword(2,6),
             'domain':Random.cword(4,10),

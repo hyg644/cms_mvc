@@ -15,6 +15,7 @@ class SiteManage extends Component {
     componentDidMount(){
         this.props.getSiteInfo()
     }
+    
     render(){
         const {siteInfo} =this.props.siteInfo;
         const {selectedRowKeys}=this.state;
@@ -26,7 +27,7 @@ class SiteManage extends Component {
         return (
             <div>
                 <Button style={{marginBottom:10}}>添加</Button>
-                <Table rowSelection={rowSelection} columns={siteTableHeader} dataSource={siteInfo}  ></Table>
+                <Table rowKey={siteTableHeader.no} rowSelection={rowSelection} columns={siteTableHeader} dataSource={siteInfo}  ></Table>
             </div>
     )}
 }
