@@ -12,7 +12,7 @@ export default class EditContentBody extends Component {
     render(){
         return (
             <div>
-                FormattedMessage: <FormattedMessage id="intl.resendVerifyCode" defaultMessage={'Resend'}/>
+                FormattedMessage: <FormattedMessage id="intl.resendVerifyCode"  defaultMessage={'Resend'}/>
                  <br />
                 内容编辑-详情
                 <Pagination showSizeChanger onShowSizeChange={this.onShowSizeChange} defaultCurrent={3} total={500} />
