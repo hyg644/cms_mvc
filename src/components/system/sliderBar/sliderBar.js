@@ -22,21 +22,22 @@ export default class SliderBar extends Component{
     rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4'];
 
     //TODO SubMenu open change
-    onOpenChange = (openKeys) => {
+    onOpenChange = (openKeys,key) => {
         const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+        debugger
         if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-            this.setState({ openKeys });
-             console.log('openKeysNow1:'+openKeys)
+            this.setState({ openKeys: latestOpenKey ? [latestOpenKey] : [] });
+            //  console.log('openKeysNow1:'+openKeys)
             // const openKeysNow = openKeys? openKeys:'';
-            this.props.handlerSelectedChange(this.state.openKeys);
+            this.props.handlerSelectedChange(latestOpenKey);
         } else {
             this.setState({
                 openKeys: latestOpenKey ? [latestOpenKey] : [],
             });
             const latestOpenKeyNow = latestOpenKey ? [latestOpenKey] : []
-            console.log('openKeysNow2:'+openKeys)
-            console.log('latestOpenKeyNow2:'+ latestOpenKeyNow)
-            this.props.handlerSelectedChange(this.state.openKeys);
+            // console.log('openKeysNow2:'+openKeys)
+            // console.log('latestOpenKeyNow2:'+ latestOpenKeyNow)
+            this.props.handlerSelectedChange(latestOpenKey);
         }
 
      

@@ -45,28 +45,24 @@ class Dashboard extends Component {
         }
     }
 
-    //TODO nav联动 桩体提升函数
+    //TODO nav联动 状态提升函数
     onHandlerSelectedChange = (openKeys) =>{
-        console.log('dashboardKey:'+ openKeys)
+        // console.log('dashboardKey:'+ openKeys)
         this.setState({
             openKeys: openKeys ? [openKeys] : []
         })
     }
 
-    // const { locale, isLoading } = this.props.locale;
-
-    // switchLocale = (localeType) =>{
-    // }
-
-
-    //TODO 获取语言版本
-    componentWillMount = () =>{
-        //TODO change locale
-        if(!localStorage.locale){
-            localStorage.locale = 'en_US';
-        }
-
-        switch(localStorage.locale){
+    //TODO 重置语言 状态提升函数
+    onHandlerSetLocale = (locale) =>{
+        //重置语言包
+        this.handlerSwitchLocale(localStorage.locale);
+    }
+    
+    //TODO switch locale fun
+    handlerSwitchLocale = (localeType) =>{
+        console.log('localeType:'+localeType)
+        switch(localeType){
             case 'en_US':
                 this.setState({
                     localeLanuage:'en_US',
@@ -94,6 +90,18 @@ class Dashboard extends Component {
         }
     }
 
+
+    //TODO 获取语言版本
+    componentWillMount = () =>{
+        //TODO if localStorage.locale is empty, locale will be created
+        if(!localStorage.locale){
+            localStorage.locale = 'en_US';
+        }
+        //TODO 切换语言包
+        this.handlerSwitchLocale(localStorage.locale);
+        
+    }
+
     render() {
         return (
             <IntlProvider
@@ -103,8 +111,11 @@ class Dashboard extends Component {
             >
                 <LocaleProvider locale={this.state.antdLocale}>
                     <Layout>
-                    {/* <Button onClick = {()=> this.props.getLocale()}>发起请求</Button> */}
-                        <Nav handlerSelectedChange={this.onHandlerSelectedChange} locale={this.state.localeLanuage}/>
+                    {/* {console.log('this.state.openKeys:'+this.state.openKeys)} */}
+                        <Nav handlerSelectedChange={this.onHandlerSelectedChange}  
+                            selectedKeys={this.state.openKeys} 
+                            // locale={{'locale':this.state.localeLanuage}} 
+                            handlerSetLocale={this.onHandlerSetLocale} />
                         <Layout>
                             <SliderBar route={this.props.route}  handlerSelectedChange={this.onHandlerSelectedChange}  openKeys = {this.state.openKeys}/> 
                             <ContentBody route={this.props.route} />

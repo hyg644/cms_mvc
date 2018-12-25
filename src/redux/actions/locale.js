@@ -52,10 +52,11 @@ export function getLocaleFail(){
 
 
 //TODO setLocale function
-export function setLocale (body){
+export function setLocale (dataObj){
+    // debugger
     return {
-        type:[SET_LOCALE_RESPONSE, SET_LOCALE_SUCCESS, SET_LOCALE_FAIL],
-        promise:client => client.post('http://10.0.41.131:8213/locale',{body})
+        types:[SET_LOCALE_RESPONSE, SET_LOCALE_SUCCESS, SET_LOCALE_FAIL],
+        promise:client => client.post('http://10.0.41.131:8213/locale',dataObj)
     }
 }
 
