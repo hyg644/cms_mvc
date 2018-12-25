@@ -9,7 +9,6 @@ import store from './redux/store';
 import {BrowserRouter as HashRouter} from 'react-router-dom'; 
 import App from 'components/app/app';
 
-import 'style/cmsBase.less';
 
 //开启热更新
 if (module.hot) {

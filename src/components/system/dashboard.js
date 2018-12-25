@@ -61,9 +61,7 @@ class Dashboard extends Component {
 
     //TODO 获取语言版本
     componentWillMount = () =>{
-     
-        // debugger
-        // let localStorageLanuage = '';
+        //TODO change locale
         if(!localStorage.locale){
             localStorage.locale = 'en_US';
         }
@@ -94,9 +92,6 @@ class Dashboard extends Component {
                 })
                 break;
         }
-
-        // console.log('this.state:')
-        // console.log(this.state)
     }
 
     render() {
@@ -107,8 +102,6 @@ class Dashboard extends Component {
                 // formats={appLocale.formats}
             >
                 <LocaleProvider locale={this.state.antdLocale}>
-
-                   
                     <Layout>
                     {/* <Button onClick = {()=> this.props.getLocale()}>发起请求</Button> */}
                         <Nav handlerSelectedChange={this.onHandlerSelectedChange} locale={this.state.localeLanuage}/>

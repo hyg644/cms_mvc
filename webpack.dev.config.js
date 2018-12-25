@@ -145,12 +145,14 @@ const devConfig = {
         contentBase: path.join(__dirname, './dist'),
         historyApiFallback: true,//配置回调页面
         host:'10.0.41.131',
+        hot:true,
+        // open:true,
+        // host:'localhost',
         // compress: true,//启用gzip压缩
         proxy: {
-            "/api": {
+            '/api': {
                 target: 'http://localhost:8213',
-                pathRewrite: {'^/api' : ''},
-                changeOrigin: true
+                pathRewrite: {'^/api' : ''}
               }
         }//接口调用代理
     },

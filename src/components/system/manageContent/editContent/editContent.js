@@ -1,9 +1,9 @@
 //TODO 内容编辑管理
 import React,{Component} from 'react';
-import {Layout} from 'antd';
-import TreeList from  './treeList';
+import {Layout, Row, Col} from 'antd';
+import EditContentTree from  './editContentTree';
 import EditContentBody from  './editContentBody';
-import style from 'style/cmsBase.css';
+import style from 'style/cmsBase.less';
 
 const {Sider} = Layout
  
@@ -14,13 +14,17 @@ export default class EditContent extends Component {
 
     render(){
         return (
-            <Layout style={{'background':'#fff'}}>
-                <Sider theme='light'>
-                    <TreeList />
-                </Sider>
-                <Layout>
-                    <EditContentBody/>
-                </Layout>
-            </Layout>
+            <div className={style.fixedBg}>
+                <Row>
+                    <Col span={5}  >
+                        <Sider theme='light'>
+                            <EditContentTree />
+                        </Sider>
+                    </Col>
+                    <Col span={19} >
+                        <EditContentBody/>
+                    </Col>
+                </Row>  
+            </div>
         )}
 }

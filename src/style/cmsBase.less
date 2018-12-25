@@ -1,12 +1,23 @@
 @base:yellowgreen;
-#app{
-    font-size: 12px;
-    background-color: grey;
-    background: @base;
-}
+@bgWhite:white;
+#app{ font-size: 12px; background-color: grey;  min-width: 1280px; background: @base; }
+
+.wrap{min-width: 1280px;}
 
 .Breadcrumb{
     margin: '16px 0'
 }
 
 .headFlex{ display: flex; align-items: center; justify-content: space-between;}
+
+.loading{ text-align: center;display: flex; display: -webkit-flex; justify-content: center; position: relative;height:0; width: 100%}
+.loadingBox{position: absolute; transform: translatey(20px);}
+
+.fixedBg{ width: 100%; background-color: @bgWhite}
+.textCenter{ text-align: center}
+
+.textGreen{ color: green;}
+.textOrange{ color: orange;}
+
+/***/
+.colStyle{ white-space: nowrap; word-break: keep-all; }

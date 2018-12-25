@@ -77,7 +77,7 @@ const commonConfig = {
             utils: path.join(__dirname,'src/utils'),
             locales:path.join(__dirname,'src/locales'),
             // mock: path.join(__dirname,'src/mock')
-            // redux: path.join(__dirname,'src/redux'),
+            reduxLib: path.join(__dirname,'src/redux'),
         },
         extensions:['.js','.jsx','.ts','.tsx']
     },

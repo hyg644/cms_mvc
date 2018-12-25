@@ -27,6 +27,6 @@ function getSiteInfoFail() {
 export function getSiteInfo(){
     return {
         types: [GET_SITE_INFO_REQUEST, GET_SITE_INFO_SUCCESS, GET_SITE_INFO_FAIL],
-        promise: client => client.get('http://localhost:8213/sitemanage')
+        promise: client => client.get('/api/sitemanage')
     }
 }

@@ -7,7 +7,8 @@ module.exports = function() {
         slider:[],
         contentTreeList:[],
         locale:[],
-        sitemanage:[]
+        sitemanage:[],
+        editContentList:[]
     };
   
 
@@ -40,15 +41,70 @@ module.exports = function() {
     }
 
 
-    //TODO API slider
-    data.contentTreeList =  Mock.mock({
-            'treeNode|0-20':{
-                "title|+1:":'',
-                'subNum':Random.integer(0,100000),
-                'key':Random.natural(10000)
-            }
-    });
+    //TODO API contentTreeList
+    data.editContentTree =  Mock.mock([
+        {
+            "nodeName":Random.title(1,3),
+            'nodeID':0,
+            'total':Random.natural(0,10000),
+            'subNode|0-3':[{
+                "nodeName":Random.title(0, 3),
+                'nodeID|+1':['0-0','0-1','0-2'],
+                'total':Random.natural(0,1000),
+            }]
+        },{
+            "nodeName":Random.title(1,3),
+            'nodeID':1,
+            'total':Random.natural(0,10000),
+            'subNode':[{
+                "nodeName":Random.title(1, 3),
+                'nodeID':'1-0',
+                'total':Random.natural(0,1000),
+                'subNode|0-3':[{
+                    "nodeName":Random.title(1, 3),
+                    'nodeID|+1':['1-0-0','1-0-1','1-0-2'],
+                    'total':Random.natural(0,100),
+                }]
+            }]
+        },{
+            "nodeName":Random.title(1,3),
+            'nodeID':2,
+            'total':Random.natural(0,10000),
+            'subNode':[{
+                "nodeName":Random.title(1, 3),
+                'nodeID':'2-0',
+                'total':Random.natural(0,1000),
+                'subNode|0-3':[{
+                    "nodeName":Random.title(1, 3),
+                    'nodeID|+1':['2-0-0','2-0-1','2-0-2'],
+                    'total':Random.natural(0,100),
+                }]
+            },{
+                "nodeName":Random.title(1, 3),
+                'nodeID':'2-1',
+                'total':Random.natural(0,1000),
+                'subNode|0-3':[{
+                    "nodeName":Random.title(1, 3),
+                    'nodeID|+1':['2-1-0','2-1-1','2-1-2'],
+                    'total':Random.natural(0,100),
+                }]
+            }]
+        }
+    ]);
     
+    //TODO API contentList
+    for(let i=0;i<30;i++){
+        data.editContentList.push({
+            'key':`${i}`,
+            'id':`${i}`,
+            'browse':Random.integer(0,100000),
+            'releaseTime':Random.datetime("yyyy-MM-dd HH:mm:ss"),
+            'recommend':Random.boolean(),
+            'status':Random.boolean(),
+            'title':Random.cword(4,12),
+        })
+    }
+
     
     //TODO API locale
     data.locale = Mock.mock({
@@ -58,7 +114,6 @@ module.exports = function() {
 
 
     //TODO API siteManage (站点管理)
-    
     for(let i=0;i<30;i++){
         data.sitemanage.push({
             'key':`${i}`,
@@ -74,5 +129,7 @@ module.exports = function() {
         })
     }
     
-  return data
+
+    //TODO return
+    return data
 }
