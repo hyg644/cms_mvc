@@ -61,7 +61,7 @@ class Dashboard extends Component {
     
     //TODO switch locale fun
     handlerSwitchLocale = (localeType) =>{
-        console.log('localeType:'+localeType)
+        // console.log('localeType:'+localeType)
         switch(localeType){
             case 'en_US':
                 this.setState({

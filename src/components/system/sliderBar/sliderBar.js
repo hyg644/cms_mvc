@@ -24,7 +24,7 @@ export default class SliderBar extends Component{
     //TODO SubMenu open change
     onOpenChange = (openKeys,key) => {
         const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
-        debugger
+        // debugger
         if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
             this.setState({ openKeys: latestOpenKey ? [latestOpenKey] : [] });
             //  console.log('openKeysNow1:'+openKeys)
