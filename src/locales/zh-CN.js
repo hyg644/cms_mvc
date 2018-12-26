@@ -42,6 +42,7 @@ const zh_CN = {
   "intl.addPurview":"添加权限",
   "intl.addCloumn":"添加栏目",
   "intl.delete":"删除",
+  "intl.deleteBatch":"批量删除",
   "intl.deleteDepartment":"删除部门",
   "intl.deleteRole":"删除角色",
   "intl.deletePurview":"删除权限",

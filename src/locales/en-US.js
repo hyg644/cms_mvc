@@ -42,6 +42,7 @@ const en_US = {
     "intl.addPurview":"Add Purview",
     "intl.addCloumn":"Add Column",
     "intl.delete":"Delete",
+    "intl.deleteBatch":"Delete Batch",
     "intl.deleteDepartment":"Delete Department",
     "intl.deleteRole":"Delete Role",
     "intl.deletePurview":"Delete Purview",
