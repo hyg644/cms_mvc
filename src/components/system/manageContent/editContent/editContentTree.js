@@ -59,17 +59,13 @@ class EditContentTree extends Component {
         
 
         const loop = data => data.map((item) => {
-      
             // console.log('item:'+JSON.stringify(item));
-
             if(item.subNode){
-                console.log('item.nodeID:'+item.nodeID)
+                // console.log('item.nodeID:'+item.nodeID)
                 return <TreeNode title={item.nodeName+'('+item.total+')'}  key={item.nodeID}>{loop(item.subNode)}</TreeNode>;
             }
-            
             return <TreeNode title={item.nodeName+'('+item.total+')'}  key={item.nodeID}></TreeNode>;
-
-        })
+        });
 
       
 
@@ -80,34 +76,13 @@ class EditContentTree extends Component {
                 <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={this.onChange} />
                 <Loading display={isLoading}/>
                 {/* {console.log('editContentTreeState:'+JSON.stringify(editContentTree))} */}
-               
                 
-
                 <Tree
                     showLine
                     defaultExpandedKeys={['0-0']}
                     onSelect={this.onSelect}
                 >
                      {loop(editContentTree)}
-                    {/* <TreeNode title="体育(3455) 0" key="0-0">
-                        <TreeNode title="足球(239) 0-0" key="0-0-0" isLeaf />
-                        <TreeNode title="板球(234) 0-1" key="0-0-1" isLeaf />
-                    </TreeNode>
-                    <TreeNode title="政治(234324) 1" key="0-1">
-                        <TreeNode title="国内(23424) 1-1-0" key="0-1-0">
-                            <TreeNode title="浙江(234) 0-1-0-1" key="0-1-0-1" isLeaf/>
-                            <TreeNode title="北京(234) 0-1-0-2" key="0-1-0-2" isLeaf/>
-                        </TreeNode>
-                        <TreeNode title="国际(345) 1-1" key="0-1-1" isLeaf />
-                    </TreeNode>
-                    <TreeNode title="足球(234)" key="0-2" />
-                    <TreeNode title="娱乐(345)" key="0-3" />
-                    <TreeNode title="政治(34)" key="0-4" />
-                    <TreeNode title="国际新闻(345)" key="0-5" />
-                    <TreeNode title="体育(345)" key="0-6" />
-                    <TreeNode title="生活(4354)" key="0-7" />
-                    <TreeNode title="时尚(4354)" key="0-8" />
-                    <TreeNode title="奇闻(34545)" key="0-9" /> */}
                 </Tree>
             </Layout>
         )}

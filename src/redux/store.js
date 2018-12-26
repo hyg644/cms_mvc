@@ -1,7 +1,6 @@
 import {createStore, applyMiddleware} from 'redux';
 // import thunkMiddleware from 'redux-thunk';
 import combineReducers from './reducers';
-
 import promiseMiddleWare from './middleware/promiseMiddleware'
 
 if (module.hot) {

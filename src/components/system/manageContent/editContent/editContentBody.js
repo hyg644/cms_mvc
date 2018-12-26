@@ -88,12 +88,12 @@ const data = [];
 
 
 class EditContentBody extends Component {
-    
+    //TODO
     onShowSizeChange = (current, pageSize) => {
         console.log(current, pageSize);
     }
 
-    
+    //TODO
     componentWillMount = (e) => {
         this.props.getEditContentList();
     }
@@ -101,7 +101,7 @@ class EditContentBody extends Component {
 
     render(){
         const dataSource = this.props.editContentList.editContentList;
-        console.log('dataSource:'+JSON.stringify(dataSource))
+        // console.log('dataSource:'+JSON.stringify(dataSource))
 
         return (
             <div>
