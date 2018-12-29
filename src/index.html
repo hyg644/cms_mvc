@@ -6,13 +6,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--[if lt IE 10]>
-    <script src="https://as.alipayobjects.com/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.js,es5-shim/4.1.14/es5-sham.js,html5shiv/3.7.2/html5shiv.js"></script>
+        <script src="https://globalnews.blob.core.windows.net/staticupload/js/console-polyfill/0.2.2/index.js></script>
+        <script src="https://globalnews.blob.core.windows.net/staticupload/js/es5-shim/4.1.14/es5-shim.js></script> 
+        <script src="https://globalnews.blob.core.windows.net/staticupload/js/es5-shim/4.1.14/es5-sham.js></script> 
+        <script src="https://globalnews.blob.core.windows.net/staticupload/js/html5shiv/3.7.2/html5shiv.js></script> 
     <![endif]-->
     <script>
         // 我们这里采用的做法是直接判断 window.Intl 是否存在，从而确定是否要引入 polyfill 文件
         if (!window.Intl) {
-            document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/Intl.js">' + '<' + '/script>');
-            document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/locale-data/jsonp/en.js">' + '<' + '/script>');
+            document.writeln('<script src="https://globalnews.blob.core.windows.net/staticupload/js/intl/1.0.1/Intl.js">' + '<' + '/script>');
+            document.writeln('<script src="https://globalnews.blob.core.windows.net/staticupload/js/intl/1.0.1/locale-data/jsonp/en.js">' + '<' + '/script>');
         }
     </script>
 </head>

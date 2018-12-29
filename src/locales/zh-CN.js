@@ -41,6 +41,8 @@ const zh_CN = {
   "intl.addRole":"添加角色",
   "intl.addPurview":"添加权限",
   "intl.addCloumn":"添加栏目",
+  "intl.selected":"选择",
+  "intl.selectAll":"全选",
   "intl.delete":"删除",
   "intl.deleteBatch":"批量删除",
   "intl.deleteDepartment":"删除部门",
@@ -180,7 +182,11 @@ const zh_CN = {
   "intl.Usage.globalSelected":'使用方法：选择全局后,添加子站点的时候将自动创建.',
   "intl.Usage.Ditto":'使用方法：同上.',
   "intl.msg.timeout":'登录超时',
-  "intl.msg.loginSucess":'登录成功'
+  "intl.msg.loginSucess":'登录成功',
+  "intl.msg.chooseOne":'请至少选择一项！',
+  "intl.confirm.title.delete":'确认要删除吗？',
+  "intl.confirm.title.modify":'确认要修改吗？',
+  "intl.confirm.content.delete.batch":'删除的这 {num} 条信息,将不能恢复!',
 }
 
 export default zh_CN;

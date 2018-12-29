@@ -99,8 +99,8 @@ module.exports = function() {
             'id':`${i}`,
             'browse':Random.integer(0,100000),
             'releaseTime':Random.datetime("yyyy-MM-dd HH:mm:ss"),
-            'recommend':Random.boolean(),
-            'status':Random.boolean(),
+            'recommend':Random.integer(0,1),
+            'status':Random.integer(0,1),
             'title':Random.cword(4,12),
         })
     }

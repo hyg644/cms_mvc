@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {FormattedMessage} from 'react-intl';
 import {Layout, Menu, Breadcrumb, Icon, Select } from 'antd';
 
-import {setLocale, getLocale} from 'actions/locale';
+import {setLocale} from 'actions/locale';
 import {post} from 'utils/RequestNormal';
 
 import style from 'style/cmsBase.less';
@@ -75,4 +75,4 @@ class Nav extends Component {
     }
 }
 
-export default connect((state)=>({locale:state.locale}),{setLocale, getLocale})(Nav);
+export default connect((state)=>({locale:state.locale}),{setLocale})(Nav);

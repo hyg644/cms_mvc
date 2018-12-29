@@ -41,6 +41,8 @@ const en_US = {
     "intl.addRole":"Add Role",
     "intl.addPurview":"Add Purview",
     "intl.addCloumn":"Add Column",
+    "intl.selected":"Selected",
+    "intl.selectAll":"Select All",
     "intl.delete":"Delete",
     "intl.deleteBatch":"Delete Batch",
     "intl.deleteDepartment":"Delete Department",
@@ -180,7 +182,11 @@ const en_US = {
     "intl.Usage.globalSelected":'Usage:When global is selected, sub-sites are automatically created when they are added.',
     "intl.Usage.Ditto":'Usage:Ditto.',
     "intl.msg.timeout":'login timeout.',
-    "intl.msg.loginSuccess":'login Success！.'
+    "intl.msg.loginSuccess":'login Success！.',
+    "intl.msg.chooseOne":'Please choose at least one！',
+    "intl.confirm.title.delete":'Are you sure you want to delete？',
+    "intl.confirm.title.modify":'Are you sure you want to change？',
+    "intl.confirm.content.delete.batch":'The {num} deleted messages will not be restored',
 }
 
 export default en_US;
